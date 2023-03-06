@@ -7,10 +7,16 @@ import {
   Route,
 } from 'react-router-dom';
 import App from './App.jsx';
+import Home from './components/Home.jsx';
+import ErrorElement from './components/ErrorElement.jsx';
 import './index.css';
 
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route path='/' element={<App />}></Route>),
+  createRoutesFromElements(
+    <Route path='/' element={<App />} errorElement={<ErrorElement />}>
+      <Route path='/' index element={<Home />} />
+    </Route>,
+  ),
 );
 
 ReactDOM.createRoot(document.getElementById('root')).render(
