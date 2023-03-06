@@ -4,7 +4,7 @@ import { FaSun, FaMoon } from 'react-icons/fa';
 
 export default function Header() {
   return (
-    <header className='bg-white dark:bg-gray-700 dark:shadow-gray-900 dark:text-slate-200 py-6 px-4 shadow-md shadow-neutral-200 md:px-12'>
+    <header className='bg-white dark:bg-gray-700 dark:shadow-gray-900 dark:text-slate-200 py-6 px-4 shadow-md shadow-gray-200 md:px-12'>
       <div className='justify-between max-w-screen-2xl items-center flex mx-auto'>
         <Link to='/'>
           <h1 className='text-sm font-semibold inline-flex items-center md:text-xl'>
