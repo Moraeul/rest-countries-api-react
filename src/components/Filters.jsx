@@ -18,7 +18,7 @@ export default function Filters() {
           id='default-search'
           type='search'
           placeholder='Search for a country...'
-          className='py-4 pl-16 text-sm pr-6 w-full rounded-md shadow-md shadow-gray-300 dark:bg-gray-700 dark:shadow-gray-900'
+          className='py-4 pl-16 text-sm pr-6 w-full rounded-md shadow-md shadow-gray-300 dark:bg-gray-700 dark:text-white dark:shadow-gray-900 dark:placeholder:text-white'
         />
       </div>
 
