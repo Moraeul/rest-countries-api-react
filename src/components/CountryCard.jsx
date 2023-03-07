@@ -7,12 +7,17 @@ export default function CountryCard({ country }) {
     region,
   } = country;
 
-  console.log(country);
+  console.log(svg);
 
   return (
     <>
-      <img src={svg} alt={alt} className='rounded-t-md' />
-
+      <div>
+        <img
+          src={svg}
+          alt={alt}
+          className='w-full h-48 rounded-t-md object-cover'
+        />
+      </div>
       <div className='p-8'>
         <h1 className='font-bold text-xl mb-4'>{common}</h1>
         <div>

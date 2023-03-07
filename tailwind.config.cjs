@@ -5,6 +5,9 @@ module.exports = {
     fontFamily: {
       nunito: ['nunito', 'sans-serif'],
     },
+    gridTemplateColumns: {
+      'fill-40': 'repeat(auto-fill, 320px)',
+    },
   },
   darkMode: 'class',
   plugins: [],
