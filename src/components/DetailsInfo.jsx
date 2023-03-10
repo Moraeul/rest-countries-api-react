@@ -31,7 +31,7 @@ export default function CountryDetailsInfo({ currentCountry, countries }) {
     <>
       <img src={svg} alt={alt} />
 
-      <div className='leading-7 text-sm'>
+      <div className='leading-7 text-sm dark:text-gray-200'>
         <h1 className='font-extrabold text-xl my-6'>{name}</h1>
         <div>
           <p>
@@ -59,7 +59,7 @@ export default function CountryDetailsInfo({ currentCountry, countries }) {
         <div className='my-6'>
           <p>
             <span className='font-semibold'>Top Level Domain: </span>
-            {tld}
+            {tld.join(', ')}
           </p>
           <p>
             <span className='font-semibold'>Currencies: </span>
@@ -72,21 +72,23 @@ export default function CountryDetailsInfo({ currentCountry, countries }) {
         </div>
 
         <div>
-          <h1 className='font-semibold mb-4 text-lg'>Border Countries:</h1>
-          {borders
-            ? borders.map((cca3) => {
-                const borderFound = findBorders(cca3);
-                return (
-                  <Link
-                    to={`/country/${borderFound.name.common}`}
-                    key={cca3}
-                    className='shadow-md rounded-md mr-4 shadow-gray-300 py-2 px-4 bg-white'
-                  >
-                    {borderFound.name.common}
-                  </Link>
-                );
-              })
-            : null}
+          <h1 className='font-semibold mb-1 text-lg'>Border Countries:</h1>
+          <div className='flex-wrap space-y-3'>
+            {borders
+              ? borders.map((cca3) => {
+                  const borderFound = findBorders(cca3);
+                  return (
+                    <Link
+                      to={`/country/${borderFound.name.common}`}
+                      key={cca3}
+                      className='shadow-md inline-block rounded-md mr-3 shadow-gray-300 py-1 px-4 bg-white dark:bg-gray-700 dark:shadow-sm dark:shadow-gray-900'
+                    >
+                      {borderFound.name.common}
+                    </Link>
+                  );
+                })
+              : null}
+          </div>
         </div>
       </div>
     </>
