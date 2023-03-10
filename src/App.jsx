@@ -1,9 +1,8 @@
-import Header from './components/Header';
+import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import Header from './components/Header';
 
-function App() {
+export default function Root() {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -19,5 +18,3 @@ function App() {
     </>
   );
 }
-
-export default App;

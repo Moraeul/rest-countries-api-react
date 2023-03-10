@@ -1,16 +1,16 @@
+import { Link } from 'react-router-dom';
+
 export default function CountryCard({ country }) {
   const {
+    name: { common: name },
     capital,
-    flags: { svg, alt },
-    name: { common },
+    flags: { alt, svg },
     population,
     region,
   } = country;
 
-  console.log(svg);
-
   return (
-    <>
+    <Link to={`country/${name}`}>
       <div>
         <img
           src={svg}
@@ -19,7 +19,7 @@ export default function CountryCard({ country }) {
         />
       </div>
       <div className='p-8'>
-        <h1 className='font-bold text-xl mb-4'>{common}</h1>
+        <h1 className='font-bold text-xl mb-4'>{name}</h1>
         <div>
           <p>
             <span className='text-sm font-semibold'>Population: </span>{' '}
@@ -35,6 +35,6 @@ export default function CountryCard({ country }) {
           </p>
         </div>
       </div>
-    </>
+    </Link>
   );
 }

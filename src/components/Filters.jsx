@@ -4,11 +4,11 @@ import ListBox from './ListBox';
 export default function Filters() {
   return (
     <form>
-      <label htmlFor='default-search' className='sr-only m-0 p-0 text-sm'>
+      <label htmlFor='default-search' className='sr-only text-sm'>
         Search
       </label>
 
-      <div className='my-8 space-y-8 md:flex md:space-y-0 md:justify-between '>
+      <div className='mb-8 space-y-8 md:flex md:space-y-0 md:justify-between '>
         <div className='relative'>
           <div className='pointer-events-none absolute inset-y-0 flex items-center pl-8 '>
             <AiOutlineSearch className='text-xl text-gray-400 dark:text-gray-100' />

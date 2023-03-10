@@ -11,6 +11,7 @@ export default function Header() {
             <BiWorld className='mr-1' /> Where in the world?
           </h1>
         </Link>
+
         <button className='text-xs inline-flex items-center md:text-base lg:text-base'>
           {localStorage.theme === 'dark' ? (
             <FaMoon className='mr-1' />
