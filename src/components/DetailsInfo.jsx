@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function CountryDetailsInfo({ currentCountry, countries }) {
   if (!currentCountry) return;
@@ -17,6 +17,10 @@ export default function CountryDetailsInfo({ currentCountry, countries }) {
     tld,
   } = currentCountry;
 
+  const findBorders = (border) => {
+    return countries.find((country) => country.cca3 === border);
+  };
+
   const formattedPopulation = population.toLocaleString('en-US');
   const formattedLanguages = Object.values(languages).join(', ');
   const formattedCurrencies = Object.values(currencies).map(
@@ -27,7 +31,7 @@ export default function CountryDetailsInfo({ currentCountry, countries }) {
     <>
       <img src={svg} alt={alt} />
 
-      <div className='leading-7'>
+      <div className='leading-7 text-sm'>
         <h1 className='font-extrabold text-xl my-6'>{name}</h1>
         <div>
           <p>
@@ -69,24 +73,20 @@ export default function CountryDetailsInfo({ currentCountry, countries }) {
 
         <div>
           <h1 className='font-semibold mb-4 text-lg'>Border Countries:</h1>
-          <a
-            href='#'
-            className='shadow-md rounded-md mr-4 shadow-gray-300 py-2 px-4 bg-white'
-          >
-            France
-          </a>
-          <a
-            href='#'
-            className='shadow-md rounded-md mr-4 shadow-gray-300 py-2 px-4 bg-white'
-          >
-            Germany
-          </a>
-          <a
-            href='#'
-            className='shadow-md rounded-md mr-4 shadow-gray-300 py-2 px-4 bg-white'
-          >
-            Netherlands
-          </a>
+          {borders
+            ? borders.map((cca3) => {
+                const borderFound = findBorders(cca3);
+                return (
+                  <Link
+                    to={`/country/${borderFound.name.common}`}
+                    key={cca3}
+                    className='shadow-md rounded-md mr-4 shadow-gray-300 py-2 px-4 bg-white'
+                  >
+                    {borderFound.name.common}
+                  </Link>
+                );
+              })
+            : null}
         </div>
       </div>
     </>

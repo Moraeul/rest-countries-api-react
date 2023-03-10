@@ -29,7 +29,7 @@ export default function ListBox() {
                 <li
                   className={`relative inline-flex cursor-pointer select-none items-center justify-between rounded py-2 px-5 text-sm ${
                     active
-                      ? 'bg-gray-800 text-white dark:bg-gray-300 dark:text-black'
+                      ? 'bg-gray-700 text-white dark:bg-gray-300 dark:text-black'
                       : 'bg-white text-gray-900 dark:bg-gray-700 dark:text-white'
                   }`}
                 >

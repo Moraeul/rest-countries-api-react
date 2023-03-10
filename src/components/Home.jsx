@@ -6,7 +6,7 @@ export default function Home() {
   const { countries } = useOutletContext();
 
   return (
-    <main className='max-w-screen-2xl mx-auto px-4 md:px-12 2xl:px-0'>
+    <main className='max-w-screen-2xl mx-auto px-4 py-8 md:px-12 2xl:px-0'>
       <Filters />
 
       <ul className='grid gap-8 justify-evenly md:grid-cols-fill-40 lg:gap-12'>
