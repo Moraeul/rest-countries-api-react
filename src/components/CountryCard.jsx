@@ -9,6 +9,8 @@ export default function CountryCard({ country }) {
     region,
   } = country;
 
+  const formattedPopulation = population.toLocaleString('en-US');
+
   return (
     <Link to={`country/${name}`}>
       <div>
@@ -23,7 +25,7 @@ export default function CountryCard({ country }) {
         <div>
           <p>
             <span className='text-sm font-semibold'>Population: </span>{' '}
-            {population.toLocaleString('en-US')}
+            {formattedPopulation}
           </p>
           <p>
             <span className='text-sm font-semibold'>Region: </span>
