@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import { BiWorld } from 'react-icons/bi';
 import { FaSun, FaMoon } from 'react-icons/fa';
+import useThemeSwitcher from '../hooks/useThemeSwitcher';
 
 export default function Header() {
+  const { toggleTheme } = useThemeSwitcher();
+
   return (
     <header className='bg-white dark:bg-gray-700 dark:shadow-gray-900 dark:text-gray-200 py-6 px-4 shadow-md shadow-gray-200 md:px-12'>
       <div className='justify-between max-w-screen-2xl items-center flex mx-auto'>
@@ -12,7 +15,10 @@ export default function Header() {
           </h1>
         </Link>
 
-        <button className='text-xs inline-flex items-center md:text-base lg:text-base'>
+        <button
+          onClick={toggleTheme}
+          className='text-xs inline-flex items-center md:text-base lg:text-base'
+        >
           {localStorage.theme === 'dark' ? (
             <FaMoon className='mr-1' />
           ) : (

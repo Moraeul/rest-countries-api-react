@@ -32,7 +32,7 @@ export default function CountryDetailsInfo({ currentCountry, countries }) {
     <div className='xl:flex xl:space-x-20'>
       <img src={svg} alt={alt} className='xl:max-w-[50%]' />
 
-      <div className='leading-7 text-sm dark:text-gray-200'>
+      <div className='leading-7 text-sm dark:text-gray-200 my-auto'>
         <h1 className='font-extrabold text-xl my-6'>{name}</h1>
 
         <div className='md:flex md:space-x-20 mb-6'>
