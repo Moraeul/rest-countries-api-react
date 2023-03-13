@@ -1,6 +1,5 @@
 import { Listbox } from '@headlessui/react';
-import { Fragment } from 'react';
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import { BiChevronDown, BiCheck } from 'react-icons/bi';
 
 const regions = [
@@ -26,8 +25,8 @@ export default function ListBox({ handleRegionChange }) {
           onChange={handleRegionChange(selectedRegion.value)}
           className='absolute top-14 flex w-52 flex-col rounded-md bg-white p-1 shadow-md shadow-gray-300 dark:bg-gray-700 dark:shadow-gray-900'
         >
-          {regions.map((country) => (
-            <Listbox.Option key={country.id} value={country} as={Fragment}>
+          {regions.map((region) => (
+            <Listbox.Option key={region.id} value={region} as={Fragment}>
               {({ active, selected }) => (
                 <li
                   className={`relative inline-flex cursor-pointer select-none items-center justify-between rounded py-2 px-5 text-sm ${
@@ -36,7 +35,7 @@ export default function ListBox({ handleRegionChange }) {
                       : 'bg-white text-gray-900 dark:bg-gray-700 dark:text-white'
                   }`}
                 >
-                  {country.name}
+                  {region.name}
                   {selected ? (
                     <span className='absolute inset-y-0 left-0 flex items-center pl-0.5'>
                       <BiCheck className='h-4 w-4' aria-hidden='true' />
