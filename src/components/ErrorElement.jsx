@@ -8,7 +8,7 @@ export default function ErrorPage() {
     <div className='grid h-screen content-center text-center '>
       <h1 className='text-4xl font-bold dark:text-gray-100'>Oops!</h1>
       <p className='my-8 font-semibold dark:text-gray-100'>
-        Sorry, and unexpected error has occurred.
+        Sorry, an unexpected error has occurred.
       </p>
       <p>
         <i className='text-lg text-gray-400'>

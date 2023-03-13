@@ -1,29 +1,32 @@
 import { Listbox } from '@headlessui/react';
-import { BiChevronDown, BiCheck } from 'react-icons/bi';
 import { Fragment } from 'react';
 import { useState } from 'react';
+import { BiChevronDown, BiCheck } from 'react-icons/bi';
 
-const countries = [
-  { id: 1, name: 'Filter by region' },
-  { id: 2, name: 'Africa' },
-  { id: 3, name: 'America' },
-  { id: 4, name: 'Asia' },
-  { id: 5, name: 'Europe' },
-  { id: 6, name: 'Oceania' },
+const regions = [
+  { id: 0, value: '', name: 'Filter By Region' },
+  { id: 1, value: 'africa', name: 'Africa' },
+  { id: 2, value: 'america', name: 'America' },
+  { id: 3, value: 'asia', name: 'Asia' },
+  { id: 4, value: 'europe', name: 'Europe' },
+  { id: 5, value: 'oceania', name: 'Oceania' },
 ];
 
-export default function ListBox() {
-  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
+export default function ListBox({ handleRegionChange }) {
+  const [selectedRegion, setSelectedRegion] = useState(regions[0]);
 
   return (
-    <Listbox value={selectedCountry} onChange={setSelectedCountry}>
+    <Listbox value={selectedRegion} onChange={setSelectedRegion}>
       <div className='relative'>
         <Listbox.Button className='inline-flex w-52 items-center justify-between rounded-md bg-white py-4 px-6 text-sm shadow-md shadow-gray-300 dark:bg-gray-700 dark:text-white dark:shadow-md dark:shadow-gray-900'>
-          {selectedCountry.name} <BiChevronDown className='h-5 w-5' />
+          {selectedRegion.name} <BiChevronDown className='h-5 w-5' />
         </Listbox.Button>
 
-        <Listbox.Options className='absolute top-14 flex w-52 flex-col rounded-md bg-white p-1 shadow-md shadow-gray-300 dark:bg-gray-700 dark:shadow-gray-900'>
-          {countries.map((country) => (
+        <Listbox.Options
+          onChange={handleRegionChange(selectedRegion.value)}
+          className='absolute top-14 flex w-52 flex-col rounded-md bg-white p-1 shadow-md shadow-gray-300 dark:bg-gray-700 dark:shadow-gray-900'
+        >
+          {regions.map((country) => (
             <Listbox.Option key={country.id} value={country} as={Fragment}>
               {({ active, selected }) => (
                 <li

@@ -1,7 +1,7 @@
 import { AiOutlineSearch } from 'react-icons/ai';
 import ListBox from './ListBox';
 
-export default function Filters() {
+export default function Filters({ handleRegionChange, handleSearch, query }) {
   return (
     <form>
       <label htmlFor='default-search' className='sr-only text-sm'>
@@ -17,12 +17,15 @@ export default function Filters() {
           <input
             id='default-search'
             type='search'
+            value={query}
+            onChange={handleSearch}
+            autoComplete='off'
             placeholder='Search for a country...'
             className='py-4 pl-16 text-sm pr-6 w-full md:w-96 rounded-md shadow-md shadow-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:shadow-gray-900 dark:placeholder:text-gray-200'
           />
         </div>
 
-        <ListBox />
+        <ListBox handleRegionChange={handleRegionChange} />
       </div>
     </form>
   );
